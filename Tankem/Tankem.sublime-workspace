@@ -1,0 +1,641 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"Aun",
+				"AucuneArme"
+			],
+			[
+				"debug",
+				"debugNode"
+			],
+			[
+				"panda",
+				"pandaBase"
+			],
+			[
+				"an",
+				"animer"
+			],
+			[
+				"position",
+				"positionCible"
+			],
+			[
+				"noe",
+				"noeudPhysique"
+			],
+			[
+				"nouvelle",
+				"nouvelleValeur〔argument〕"
+			],
+			[
+				"intef",
+				"interface_jeu〔module〕"
+			],
+			[
+				"lan",
+				"lanceurId"
+			],
+			[
+				"liste",
+				"listeBalle"
+			],
+			[
+				"balle",
+				"balleId"
+			],
+			[
+				"mouse",
+				"mouseEnabled〔variable〕"
+			],
+			[
+				"item",
+				"itemId"
+			],
+			[
+				"no",
+				"noeudOptimisation"
+			],
+			[
+				"arm",
+				"armeSecondaire〔variable〕"
+			],
+			[
+				"repa",
+				"reparentTo"
+			],
+			[
+				"hauteur",
+				"hauteurCanon"
+			],
+			[
+				"rep",
+				"reparentTo"
+			],
+			[
+				"attach",
+				"attachRigidBody"
+			],
+			[
+				"monde",
+				"mondePhysique"
+			],
+			[
+				"forme",
+				"formeCollision"
+			],
+			[
+				"Physi",
+				"PhysicsCollisionHandler"
+			],
+			[
+				"att",
+				"attachNewNode"
+			],
+			[
+				"phy",
+				"physicsManager"
+			],
+			[
+				"Phy",
+				"PhysicsCollisionHandler"
+			],
+			[
+				"Act",
+				"ActorNode"
+			],
+			[
+				"Colli",
+				"CollisionTraverser"
+			],
+			[
+				"colli",
+				"CollisionTraverser"
+			],
+			[
+				"set",
+				"setPos"
+			],
+			[
+				"p",
+				"physics"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "src/map.py",
+			"settings":
+			{
+				"buffer_size": 16720,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/gameLogic.py",
+			"settings":
+			{
+				"buffer_size": 6243,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/entity/balle.py",
+			"settings":
+			{
+				"buffer_size": 7413,
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "Packages/Python/Python.sublime-build",
+	"build_system_choices":
+	[
+		[
+			[
+				[
+					"MyProject",
+					""
+				],
+				[
+					"Packages/Python/Python.sublime-build",
+					""
+				],
+				[
+					"Packages/Python/Python.sublime-build",
+					"Syntax Check"
+				]
+			],
+			[
+				"Packages/Python/Python.sublime-build",
+				""
+			]
+		]
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 104.0,
+		"last_filter": "Package Control: install",
+		"selected_items":
+		[
+			[
+				"Package Control: install",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: Instal",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 528.0
+	},
+	"console":
+	{
+		"height": 126.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = '2915d1851351e5ee549c20394736b442' + '8bc59f460fa1548d1514676163dafc88'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/J/SourceControl/TankemFork/tankemfork/Tankem",
+		"/J/SourceControl/TankemFork/tankemfork/Tankem/src",
+		"/J/SourceControl/TankemFork/tankemfork/Tankem/src/entity",
+		"/J/SourceControl/TankemFork/tankemfork/Tankem/src/interface"
+	],
+	"file_history":
+	[
+		"/J/SourceControl/TankemFork/tankemfork/Tankem/src/entity/tank.py",
+		"/J/SourceControl/TankemFork/tankemfork/Tankem/src/interface/interfaceMessage.py",
+		"/J/SourceControl/TankemFork/tankemfork/Tankem/src/inputManager.py",
+		"/J/SourceControl/TankemFork/tankemfork/Tankem/src/gameLogic.py",
+		"/J/SourceControl/TankemFork/tankemfork/Tankem/src/entity/wall.py",
+		"/J/SourceControl/TankemFork/tankemfork/Tankem/src/entity/balle.py",
+		"/D/CEGEP/B62/Projet/TankemProf/Tankem/src/config/ConfigTankem.prc",
+		"/D/CEGEP/B62/Projet/TankemProf/Tankem/src/interface/interfaceMessage.py",
+		"/D/CEGEP/B62/Projet/TankemProf/Tankem/src/map.py",
+		"/D/CEGEP/B62/Projet/TankemProf/Tankem/Tankem.sublime-project",
+		"/D/CEGEP/B62/Projet/TankemProf/Tankem/src/entity/balle.py",
+		"/D/CEGEP/B62/Projet/TankemProf/Tankem/src/entity/item.py",
+		"/D/CEGEP/B62/Projet/TankemProf/Tankem/src/interface/interfaceTank.py",
+		"/D/CEGEP/B62/Projet/TankemProf/Tankem/src/inputManager.py",
+		"/D/CEGEP/B62/Projet/TankemProf/Tankem/src/entity/wall.py",
+		"/D/CEGEP/B62/Projet/TankemProf/Tankem/src/entity/tank.py",
+		"/D/CEGEP/B62/Projet/TankemProf/Tankem/src/gameLogic.py",
+		"/D/CEGEP/B62/Projet/TankemProf/Tankem/src/main.py",
+		"/D/CEGEP/B62/Projet/TankemProf/Tankem/src/interface/__init__.py",
+		"/D/CEGEP/B62/Projet/TankemProf/Tankem/src/interfaceTank.py",
+		"/D/CEGEP/B62/Projet/TankemProf/Tankem/src/interfaceMessage.py",
+		"/D/CEGEP/B62/Projet/TankemProf/Tankem/src/constructionMap.py",
+		"/D/CEGEP/B62/Projet/TankemProf/Tankem/src/util/mazeUtil.py",
+		"/D/CEGEP/B62/Projet/TankemProf/Tankem/src/interface_jeu.py",
+		"/D/CEGEP/B62/Projet/TankemProf/Tankem/src/balle.py",
+		"/D/CEGEP/B62/Projet/TankemProf/Tankem/src/tank.py",
+		"/D/CEGEP/B62/Projet/TankemProf/Tankem/src/inclureCheminCegep.py",
+		"/D/CEGEP/B62/Projet/TankemProf/Tankem/src/item.py",
+		"/D/CEGEP/B62/Projet/TankemProf/Tankem/src/mazeUtil.py",
+		"/D/CEGEP/B62/Projet/TankemProf/src/interface_jeu.py",
+		"/D/CEGEP/B62/Projet/TankemProf/src/config/ConfigTankem.prc",
+		"/D/CEGEP/B62/Projet/TankemProf/src/mazeUtil.py",
+		"/D/CEGEP/B62/Projet/TankemProf/src/inclureCheminCegep.py",
+		"/D/CEGEP/B62/Projet/TankemProf/src/main.py",
+		"/D/CEGEP/B62/Projet/TankemProf/src/constructionMap.py.bak",
+		"/D/CEGEP/B62/Projet/TankemProf/src/tank.py.bak",
+		"/D/CEGEP/B62/Projet/TankemProf/src/balle.py",
+		"/D/CEGEP/B62/Projet/Tankem/src/main.py",
+		"/D/CEGEP/B62/Projet/Tankem/src/constructionMap.py",
+		"/D/CEGEP/B62/Projet/Tankem/Tankem.sublime-project",
+		"/D/CEGEP/B62/Projet/Tankem/src/item.py",
+		"/D/CEGEP/B62/Projet/Tankem/src/balle.py",
+		"/D/CEGEP/B62/Projet/Tankem/src/tank.py",
+		"/D/CEGEP/Panda3D-1.8.1/direct/showbase/Loader.py",
+		"/D/CEGEP/B62/Projet/Test/testPanda.py",
+		"/D/CEGEP/B62/Projet/Tankem/src/gamePadSupport.py",
+		"/D/CEGEP/B62/Projet/Tankem/.codeintel/config",
+		"/C/Users/Marc-André/AppData/Roaming/Sublime Text 3/Packages/User/Package Control.sublime-settings"
+	],
+	"find":
+	{
+		"height": 34.0
+	},
+	"find_in_files":
+	{
+		"height": 93.0,
+		"where_history":
+		[
+			"<open files>",
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"vitesse",
+			"piege",
+			"spring",
+			"10",
+			"spring",
+			"3",
+			"tankem",
+			"game",
+			"Animation",
+			"animation",
+			"lancer",
+			"tirerShotgun",
+			"canon",
+			"scale",
+			"explosion",
+			"startGame",
+			"inter",
+			"hasard",
+			"construireMapHasard",
+			"dictNoeudAnimation",
+			"animate",
+			"startScale",
+			"camer",
+			"initcam",
+			"setupControle",
+			"mouseEnabled",
+			"self.mouseEnabled",
+			"mosueenabl",
+			"setupControle",
+			"debugNP",
+			"Mitraillette",
+			"jump()",
+			"explose",
+			"WTF",
+			"self.etat",
+			"inactif",
+			"displayStartGame",
+			"displayCountDown",
+			"recursion",
+			"effetScale",
+			"gameover",
+			"setupInterface",
+			"displayGameOver",
+			"interface",
+			"setupInterface",
+			"displayCountDown",
+			"debuterControle",
+			"setupControle",
+			"post",
+			"figeObjetImmobile",
+			"post",
+			"postInitialisation",
+			"construireUi",
+			")\n",
+			"interface",
+			"setupControle",
+			"interface",
+			"self.render",
+			"render",
+			"camera",
+			"interface",
+			"self.camera",
+			"carte",
+			"mouse2",
+			"placerCameraInitiale",
+			"postInitialisation",
+			"initialiserControle",
+			"camera",
+			")\n",
+			"initialiserBulletPhysics",
+			"P1",
+			"0",
+			"figeObjetImmobile",
+			"decor",
+			"();\n",
+			"construireBase\nconstruireBase",
+			"construireBase",
+			"dictNoeudAnimation",
+			"animat",
+			"creerMo",
+			"creerMu",
+			"creer",
+			"creerMur",
+			"Tank",
+			"mobile",
+			"explose",
+			"charge",
+			"messa",
+			"rechar",
+			"delaiArme",
+			"item",
+			"lancerGuide",
+			"shotgun",
+			"explosionAutoma",
+			"sequenceExplosionAutomatique",
+			"lancerGuide",
+			"changerPointDeVie",
+			"delaiArme",
+			"attendre",
+			"explose",
+			"construireUI",
+			"listeTank",
+			"interfa",
+			"characte",
+			"updatephys",
+			"messeng",
+			"updatePhysics",
+			"updatePhy\nupdatePhysics",
+			"update",
+			"traiteMouvement",
+			"speed",
+			"directionQuePointeLeTank",
+			"forward",
+			"self.speed",
+			"vitesseAvancer",
+			"self.speed",
+			"print",
+			"exploser",
+			"tirer",
+			"balle",
+			"setkine",
+			"collision",
+			"toVisit",
+			"hasard",
+			"updateCamera",
+			"mouseEnabled",
+			"updateCamera",
+			"placerCameraInitiale"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"camera",
+			"P2",
+			"1",
+			"armeId",
+			"r",
+			"p2",
+			"render"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 2,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "src/map.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 16720,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								6078,
+								6084
+							]
+						],
+						"settings":
+						{
+							"auto_complete": false,
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1870.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "src/gameLogic.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 6243,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4398,
+								4402
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1465.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "src/entity/balle.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 7413,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								7065,
+								7065
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 49.0,
+						"translation.y": 2275.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		},
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 23.0
+	},
+	"input":
+	{
+		"height": 34.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			],
+			[
+				1,
+				0,
+				2,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			0.661984276462,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 199.0
+	},
+	"output.find_results":
+	{
+		"height": 124.0
+	},
+	"pinned_build_system": "TankemCegep",
+	"project": "Tankem.sublime-project",
+	"replace":
+	{
+		"height": 42.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"",
+				"D:\\CEGEP\\B62\\Projet\\TankemOracle\\Tankem\\Tankem.sublime-project"
+			]
+		],
+		"width": 581.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 150.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

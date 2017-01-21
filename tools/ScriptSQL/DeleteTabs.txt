@@ -1,0 +1,23 @@
+DROP TABLE tankemBalance;
+
+DROP TABLE TANKEMCASE;
+DROP TABLE TANKEMTANK;
+DROP TABLE TANKEMTYPECASE;
+DROP SEQUENCE seq_niv;
+DROP TABLE tankemArmurieUtilisateur;
+DROP TABLE tankemNiveauFavori;
+DROP TABLE tankemNiveauNbFois;
+DROP TABLE tankemArmurie;
+
+DROP TABLE tankemJoueurCase;
+DROP SEQUENCE seq_utilisateur;
+DROP TABLE tankemCaseThermique;
+DROP SEQUENCE seq_caseThermique;
+DROP TABLE tankemJoueurImplique;
+DROP TABLE tankemPartie;
+DROP SEQUENCE seq_partie;
+
+DROP TABLE TANKEMNIVEAU;
+DROP TABLE TANKEMSTATUSNIVEAU;
+DROP TABLE tankemUtilisateur;
+DROP TABLE tankemQuestion;

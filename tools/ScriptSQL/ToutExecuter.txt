@@ -1,0 +1,421 @@
+CREATE TABLE tankemBalance(
+	charsVitese NUMBER NOT NULL,
+	charsVitesseRotation NUMBER NOT NULL,
+	charsPointsDeVie NUMBER NOT NULL,
+	blocsTempsMouvement NUMBER NOT NULL,
+	canonVitesseBalle NUMBER NOT NULL,
+	canonTempsRecharge NUMBER NOT NULL,
+	mitrailletteVitesseBalle NUMBER NOT NULL,
+	mitrailletteTempsRecharge NUMBER NOT NULL,
+	grenadeVitesseInitialeBalle NUMBER NOT NULL,
+	grenadeTempsRecharge NUMBER NOT NULL,
+	shotgunVitesseBalle NUMBER NOT NULL,
+	shotgunTempsRecharge NUMBER NOT NULL,
+	shotgunOuvertureFusil NUMBER NOT NULL,
+	piegeVitesseBalle NUMBER NOT NULL,
+	piegeTempsRecharge NUMBER NOT NULL,
+	missileGuideVitesseBalle NUMBER NOT NULL,
+	missileGuideTempsRecharge NUMBER NOT NULL,
+	springVitesseInitialeSaut NUMBER NOT NULL,
+	springTempsRecharge NUMBER NOT NULL,
+	explosionBallesGrosseur NUMBER NOT NULL,
+	messageAccueilDuree NUMBER NOT NULL,
+	messageCompteRebour NUMBER NOT NULL,
+	messageAccueilContenu VARCHAR2(60),
+	messageSignalDebutpartie VARCHAR2(50),
+	messageFinPartie VARCHAR2(70),
+	CONSTRAINT CK_charsVitese CHECK (charsVitese BETWEEN 4.0 AND 12.0),
+	CONSTRAINT CK_charsVitesseRotation CHECK (charsVitesseRotation BETWEEN 1000.0 AND 2000.0),
+	CONSTRAINT CK_charsPointsDeVie CHECK (charsPointsDeVie BETWEEN 100.0 AND 2000.0),
+	CONSTRAINT CK_blocsTempsMouvement CHECK (blocsTempsMouvement BETWEEN 0.2 AND 2.0),
+	CONSTRAINT CK_canonVitesseBalle CHECK (canonVitesseBalle BETWEEN 4.0 AND 30.0),
+	CONSTRAINT CK_canonTempsRecharge CHECK (canonTempsRecharge BETWEEN 0.2 AND 10.0),
+	CONSTRAINT CK_mitrailletteVitesseBalle CHECK (mitrailletteVitesseBalle BETWEEN 4.0 AND 30.0),
+	CONSTRAINT CK_mitrailletteTempsRecharge CHECK (mitrailletteTempsRecharge BETWEEN 0.2 AND 10.0),
+	CONSTRAINT CK_grenadeVitesseInitialeBalle CHECK (grenadeVitesseInitialeBalle BETWEEN 10 AND 25.0),
+	CONSTRAINT CK_grenadeTempsRecharge CHECK (grenadeTempsRecharge BETWEEN 0.2 AND 10.0),
+	CONSTRAINT CK_shotgunVitesseBalle CHECK (shotgunVitesseBalle BETWEEN 4.0 AND 30.0),
+	CONSTRAINT CK_shotgunTempsRecharge CHECK (shotgunTempsRecharge BETWEEN 0.2 AND 10.0),
+	CONSTRAINT CK_shotgunOuvertureFusil CHECK (shotgunOuvertureFusil BETWEEN 0.1 AND 1.5),
+	CONSTRAINT CK_piegeVitesseBalle CHECK (piegeVitesseBalle BETWEEN 0.2 AND 4.0),
+	CONSTRAINT CK_piegeTempsRecharge CHECK (piegeTempsRecharge BETWEEN 0.2 AND 10.0),
+	CONSTRAINT CK_missileGuideVitesseBalle CHECK (missileGuideVitesseBalle BETWEEN 20.0 AND 40.0),
+	CONSTRAINT CK_missileGuideTempsRecharge CHECK (missileGuideTempsRecharge BETWEEN 0.2 AND 10.0),
+	CONSTRAINT CK_springVitesseInitialeSaut CHECK (springVitesseInitialeSaut BETWEEN 6.0 AND 20.0),
+	CONSTRAINT CK_springTempsRecharge CHECK (springTempsRecharge BETWEEN 0.2 AND 10.0),
+	CONSTRAINT CK_explosionBallesGrosseur CHECK (explosionBallesGrosseur BETWEEN 1.0 AND 30.0),
+	CONSTRAINT CK_messageAccueilDuree CHECK (messageAccueilDuree BETWEEN 1.0 AND 10.0),
+	CONSTRAINT CK_messageCompteRebour CHECK (messageCompteRebour BETWEEN 0.0 AND 10.0),
+	CONSTRAINT CK_messageAccueilContenu check (length(messageAccueilContenu) <60),
+	CONSTRAINT CK_messageSignalDebutpartie check (length(messageSignalDebutpartie) < 50),
+	CONSTRAINT CK_messageFinPartie check (length(messageFinPartie) < 70)
+);
+INSERT INTO tankemBalance VALUES(7,1500,200,0.8,14,1.2,18,0.4,16,0.8,13,1.8,0.4,1,0.8,30,3,10,0.5,8,3,3,'Bienvenue à TANKEM!','Début de partie!!','Fin de partie!');
+
+Commit;
+
+CREATE TABLE tankemTypeCase(
+	typedecase NUMBER PRIMARY KEY,
+	stringTypeCase VARCHAR2(20) NOT NULL 
+);
+CREATE TABLE tankemStatusNiveau(
+	statusNiveau NUMBER PRIMARY KEY,
+	stringStatus VARCHAR2(20) NOT NULL 
+);
+CREATE TABLE tankemNiveau(
+	id NUMBER PRIMARY KEY,
+	nom VARCHAR2(60) NOT NULL,
+	temps_min NUMBER,
+	temps_max NUMBER,
+	date_creation DATE,
+	status NUMBER NOT NULL,
+	grosseur_x NUMBER NOT NULL,
+	grosseur_y NUMBER NOT NULL,
+	FOREIGN KEY (status) REFERENCES tankemStatusNiveau(statusNiveau)
+);
+CREATE SEQUENCE seq_niv
+START WITH 1
+INCREMENT BY 1;
+CREATE TABLE tankemCase(
+	id_niveau NUMBER NOT NULL,
+	valeurx NUMBER NOT NULL,
+	valeury NUMBER NOT NULL,
+	typecase NUMBER NOT NULL,
+	FOREIGN KEY (id_niveau) REFERENCES tankemNiveau(id),
+	FOREIGN KEY (typecase) REFERENCES tankemTypeCase(typedecase)
+);
+CREATE TABLE tankemTank(
+	id_niveau NUMBER NOT NULL,
+	valeurx NUMBER NOT NULL,
+	valeury NUMBER NOT NULL,
+	FOREIGN KEY (id_niveau) REFERENCES tankemNiveau(id)
+);
+INSERT INTO tankemTypeCase VALUES(1,'Mur');
+INSERT INTO tankemTypeCase VALUES(2,'MurVert');
+INSERT INTO tankemTypeCase VALUES(3,'MurVertInvers');
+INSERT INTO tankemStatusNiveau VALUES(1,'Public');
+INSERT INTO tankemStatusNiveau VALUES(2,'Equipe');
+INSERT INTO tankemStatusNiveau VALUES(3,'Prive');
+INSERT INTO tankemStatusNiveau VALUES(4,'Inactif');
+INSERT INTO tankemNiveau VALUES(seq_niv.nextVal,'Volcano',4,8,TO_DATE('2016/03/18', 'yyyy/mm/dd'),1,5,5);
+INSERT INTO tankemCase VALUES(1,2,3,1);
+INSERT INTO tankemCase VALUES(1,4,3,1);
+INSERT INTO tankemCase VALUES(1,3,4,2);
+INSERT INTO tankemCase VALUES(1,1,4,3);
+INSERT INTO tankemCase VALUES(1,4,1,1);
+INSERT INTO tankemCase VALUES(1,0,3,1);
+INSERT INTO tankemTank VALUES(1,2,2);
+INSERT INTO tankemTank VALUES(1,3,4);
+INSERT INTO tankemNiveau VALUES(seq_niv.nextVal,'Phoenix Lavoie',1,3,TO_DATE('2016/03/18', 'yyyy/mm/dd'),1,10,10);
+INSERT INTO tankemCase VALUES(2,2,3,1);
+INSERT INTO tankemCase VALUES(2,4,3,1);
+INSERT INTO tankemCase VALUES(2,3,4,2);
+INSERT INTO tankemCase VALUES(2,1,4,3);
+INSERT INTO tankemCase VALUES(2,6,8,2);
+INSERT INTO tankemCase VALUES(2,9,9,3);
+INSERT INTO tankemCase VALUES(2,2,8,1);
+INSERT INTO tankemCase VALUES(2,7,9,1);
+INSERT INTO tankemCase VALUES(2,1,6,3);
+INSERT INTO tankemCase VALUES(2,5,8,2);
+INSERT INTO tankemCase VALUES(2,5,0,3);
+INSERT INTO tankemCase VALUES(2,0,4,2);
+INSERT INTO tankemCase VALUES(2,7,4,3);
+INSERT INTO tankemCase VALUES(2,2,8,3);
+INSERT INTO tankemCase VALUES(2,0,7,2);
+INSERT INTO tankemCase VALUES(2,3,6,2);
+INSERT INTO tankemCase VALUES(2,1,3,2);
+INSERT INTO tankemCase VALUES(2,1,0,3);
+INSERT INTO tankemCase VALUES(2,2,1,2);
+INSERT INTO tankemCase VALUES(2,3,1,3);
+INSERT INTO tankemCase VALUES(2,8,8,3);
+INSERT INTO tankemCase VALUES(2,9,5,2);
+INSERT INTO tankemCase VALUES(2,7,6,2);
+INSERT INTO tankemTank VALUES(2,2,6);
+INSERT INTO tankemTank VALUES(2,8,2);
+INSERT INTO tankemNiveau VALUES(seq_niv.nextVal,'SrumBattle',5,10,TO_DATE('2016/03/18', 'yyyy/mm/dd'),2,5,9);
+INSERT INTO tankemCase VALUES(3,2,3,1);
+INSERT INTO tankemCase VALUES(3,4,3,1);
+INSERT INTO tankemCase VALUES(3,3,4,2);
+INSERT INTO tankemCase VALUES(3,1,4,3);
+INSERT INTO tankemCase VALUES(3,4,7,3);
+INSERT INTO tankemCase VALUES(3,0,6,1);
+INSERT INTO tankemCase VALUES(3,2,7,2);
+INSERT INTO tankemCase VALUES(3,1,0,3);
+INSERT INTO tankemTank VALUES(3,0,0);
+INSERT INTO tankemTank VALUES(3,3,4);
+INSERT INTO tankemNiveau VALUES(seq_niv.nextVal,'Private Room',3,5,TO_DATE('2016/03/18', 'yyyy/mm/dd'),2,6,12);
+INSERT INTO tankemCase VALUES(4,2,3,2);
+INSERT INTO tankemCase VALUES(4,5,8,1);
+INSERT INTO tankemCase VALUES(4,4,11,2);
+INSERT INTO tankemCase VALUES(4,3,10,3);
+INSERT INTO tankemCase VALUES(4,0,4,2);
+INSERT INTO tankemCase VALUES(4,1,9,1);
+INSERT INTO tankemCase VALUES(4,5,3,2);
+INSERT INTO tankemCase VALUES(4,1,7,3);
+INSERT INTO tankemCase VALUES(4,2,6,2);
+INSERT INTO tankemCase VALUES(4,0,11,3);
+INSERT INTO tankemCase VALUES(4,2,9,2);
+INSERT INTO tankemCase VALUES(4,3,5,3);
+INSERT INTO tankemTank VALUES(4,0,5);
+INSERT INTO tankemTank VALUES(4,9,5);
+INSERT INTO tankemNiveau VALUES(seq_niv.nextVal,'Tag3000',1,2,TO_DATE('2016/03/18', 'yyyy/mm/dd'),3,10,10);
+INSERT INTO tankemCase VALUES(5,2,3,1);
+INSERT INTO tankemCase VALUES(5,6,3,2);
+INSERT INTO tankemCase VALUES(5,8,7,2);
+INSERT INTO tankemCase VALUES(5,1,4,3);
+INSERT INTO tankemCase VALUES(5,0,6,1);
+INSERT INTO tankemCase VALUES(5,0,2,1);
+INSERT INTO tankemCase VALUES(5,3,8,2);
+INSERT INTO tankemCase VALUES(5,3,1,3);
+INSERT INTO tankemCase VALUES(5,4,8,1);
+INSERT INTO tankemCase VALUES(5,7,3,3);
+INSERT INTO tankemCase VALUES(5,4,4,2);
+INSERT INTO tankemCase VALUES(5,8,2,3);
+INSERT INTO tankemCase VALUES(5,7,7,1);
+INSERT INTO tankemCase VALUES(5,1,8,2);
+INSERT INTO tankemCase VALUES(5,5,0,2);
+INSERT INTO tankemCase VALUES(5,5,4,3);
+INSERT INTO tankemTank VALUES(5,5,5);
+INSERT INTO tankemTank VALUES(5,4,6);
+INSERT INTO tankemNiveau VALUES(seq_niv.nextVal,'ERP Vs Blender',1,3,TO_DATE('2016/03/18', 'yyyy/mm/dd'),3,12,12);
+INSERT INTO tankemCase VALUES(6,11,2,1);
+INSERT INTO tankemCase VALUES(6,5,7,3);
+INSERT INTO tankemCase VALUES(6,7,2,2);
+INSERT INTO tankemCase VALUES(6,4,4,3);
+INSERT INTO tankemCase VALUES(6,0,3,1);
+INSERT INTO tankemCase VALUES(6,10,5,1);
+INSERT INTO tankemCase VALUES(6,2,3,2);
+INSERT INTO tankemCase VALUES(6,2,6,3);
+INSERT INTO tankemCase VALUES(6,1,5,1);
+INSERT INTO tankemCase VALUES(6,0,8,1);
+INSERT INTO tankemCase VALUES(6,9,7,2);
+INSERT INTO tankemCase VALUES(6,8,7,3);
+INSERT INTO tankemCase VALUES(6,8,4,1);
+INSERT INTO tankemCase VALUES(6,5,5,3);
+INSERT INTO tankemCase VALUES(6,3,1,2);
+INSERT INTO tankemCase VALUES(6,1,9,3);
+INSERT INTO tankemCase VALUES(6,3,8,1);
+INSERT INTO tankemCase VALUES(6,11,1,2);
+INSERT INTO tankemCase VALUES(6,7,3,2);
+INSERT INTO tankemCase VALUES(6,9,4,3);
+INSERT INTO tankemCase VALUES(6,3,10,1);
+INSERT INTO tankemCase VALUES(6,11,10,2);
+INSERT INTO tankemCase VALUES(6,7,9,2);
+INSERT INTO tankemCase VALUES(6,9,10,3);
+INSERT INTO tankemTank VALUES(6,7,9);
+INSERT INTO tankemTank VALUES(6,0,2);
+INSERT INTO tankemNiveau VALUES(seq_niv.nextVal,'Cimetiere',5,10,TO_DATE('2016/03/18', 'yyyy/mm/dd'),4,3,7);
+INSERT INTO tankemCase VALUES(7,2,3,1);
+INSERT INTO tankemCase VALUES(7,1,6,1);
+INSERT INTO tankemCase VALUES(7,0,0,2);
+INSERT INTO tankemCase VALUES(7,1,5,3);
+INSERT INTO tankemTank VALUES(7,4,0);
+INSERT INTO tankemTank VALUES(7,3,2);
+COMMIT;
+
+CREATE SEQUENCE seq_utilisateur
+START WITH 1
+INCREMENT BY 1;
+
+
+CREATE TABLE tankemQuestion(
+	id NUMBER PRIMARY KEY,
+	question VARCHAR2(255) NOT NULL);
+
+CREATE TABLE tankemUtilisateur(
+	id NUMBER PRIMARY KEY,
+	username VARCHAR2(60) NOT NULL,
+	nom VARCHAR2(60) NOT NULL,
+	prenom VARCHAR2(60) NOT NULL,
+	mot_de_passe VARCHAR2(255) NOT NULL,
+	id_questionA NUMBER NOT NULL,
+	reponse_a VARCHAR2(100) NOT NULL,
+	id_questionB NUMBER NOT NULL,
+	reponse_b VARCHAR2(100) NOT NULL,
+	R NUMBER DEFAULT 1,
+	G NUMBER DEFAULT 1,
+	B NUMBER DEFAULT 1,
+	CONSTRAINT unique_usernameTankem UNIQUE (username),
+	FOREIGN KEY (id_questionA) REFERENCES tankemQuestion(id),
+	FOREIGN KEY (id_questionB) REFERENCES tankemQuestion(id)
+);
+
+CREATE TABLE tankemArmurie(
+	id NUMBER PRIMARY KEY,
+	nom_arme VARCHAR2(100) NOT NULL
+);
+INSERT INTO tankemArmurie VALUES(1,'Shotgun');
+INSERT INTO tankemArmurie VALUES(2,'Grenade');
+INSERT INTO tankemArmurie VALUES(3,'Piege');
+INSERT INTO tankemArmurie VALUES(4,'Guide');
+INSERT INTO tankemArmurie VALUES(5,'Spring');
+INSERT INTO tankemArmurie VALUES(6,'Mitraillette');
+INSERT INTO tankemArmurie VALUES(7,'Canon');
+
+CREATE TABLE tankemArmurieUtilisateur(
+	id_utilisateur NUMBER NOT NULL,
+	id_arme NUMBER NOT NULL,
+	nb_stock NUMBER NOT NULL,
+	FOREIGN KEY (id_utilisateur) REFERENCES tankemUtilisateur(id),
+	FOREIGN KEY (id_arme) REFERENCES tankemArmurie(id)
+);
+
+INSERT INTO tankemQuestion VALUES (1,'Quel est le nom de votre pere?');
+INSERT INTO tankemQuestion VALUES (2,'Quel est le nom de votre mere?');
+INSERT INTO tankemQuestion VALUES (3,'Quel est votre animal prefere?');
+INSERT INTO tankemQuestion VALUES (4,'Quelle est votre couleur preferee?');
+INSERT INTO tankemQuestion VALUES (4,'Quel est votre site web prefere?');
+INSERT INTO tankemQuestion VALUES (5,'Quel est votre poids?');
+INSERT INTO tankemUtilisateur VALUES (seq_utilisateur.nextVal,
+ 'Joueur1',
+ 'Dupras',
+ 'Nicolas',
+ '$2a$12$TiwJOWDlaeGsLsIv2y3CMee/FNEuJ54UgET4hXzy6FTaCk0y1fJPW',
+ 1,
+ 'Pipo',
+ 2,
+ 'Pipot',
+ 1,
+ 1,
+ 1);
+
+INSERT INTO TANKEMARMURIEUTILISATEUR (ID_UTILISATEUR,ID_ARME,NB_STOCK) VALUES(1,1,0);
+INSERT INTO TANKEMARMURIEUTILISATEUR (ID_UTILISATEUR,ID_ARME,NB_STOCK) VALUES(1,2,0);
+INSERT INTO TANKEMARMURIEUTILISATEUR (ID_UTILISATEUR,ID_ARME,NB_STOCK) VALUES(1,3,0);
+INSERT INTO TANKEMARMURIEUTILISATEUR (ID_UTILISATEUR,ID_ARME,NB_STOCK) VALUES(1,4,0);
+INSERT INTO TANKEMARMURIEUTILISATEUR (ID_UTILISATEUR,ID_ARME,NB_STOCK) VALUES(1,5,0);
+INSERT INTO TANKEMARMURIEUTILISATEUR (ID_UTILISATEUR,ID_ARME,NB_STOCK) VALUES(1,6,0);
+INSERT INTO TANKEMARMURIEUTILISATEUR (ID_UTILISATEUR,ID_ARME,NB_STOCK) VALUES(1,7,1);
+INSERT INTO tankemUtilisateur VALUES (seq_utilisateur.nextVal,
+ 'Joueur2',
+ 'Phi',
+ 'Dang',
+ '$2a$12$TiwJOWDlaeGsLsIv2y3CMee/FNEuJ54UgET4hXzy6FTaCk0y1fJPW',
+ 3,
+ 'Vincent',
+ 1,
+ 'Madona',
+ 1,
+ 1,
+ 1);
+
+INSERT INTO TANKEMARMURIEUTILISATEUR (ID_UTILISATEUR,ID_ARME,NB_STOCK) VALUES(2,1,0);
+INSERT INTO TANKEMARMURIEUTILISATEUR (ID_UTILISATEUR,ID_ARME,NB_STOCK) VALUES(2,2,0);
+INSERT INTO TANKEMARMURIEUTILISATEUR (ID_UTILISATEUR,ID_ARME,NB_STOCK) VALUES(2,3,0);
+INSERT INTO TANKEMARMURIEUTILISATEUR (ID_UTILISATEUR,ID_ARME,NB_STOCK) VALUES(2,4,0);
+INSERT INTO TANKEMARMURIEUTILISATEUR (ID_UTILISATEUR,ID_ARME,NB_STOCK) VALUES(2,5,0);
+INSERT INTO TANKEMARMURIEUTILISATEUR (ID_UTILISATEUR,ID_ARME,NB_STOCK) VALUES(2,6,0);
+INSERT INTO TANKEMARMURIEUTILISATEUR (ID_UTILISATEUR,ID_ARME,NB_STOCK) VALUES(2,7,1);
+INSERT INTO tankemUtilisateur VALUES (seq_utilisateur.nextVal,
+ 'Joueur3',
+ 'Steven',
+ 'Pipo',
+ '$2a$12$TiwJOWDlaeGsLsIv2y3CMee/FNEuJ54UgET4hXzy6FTaCk0y1fJPW',
+ 3,
+ 'Georges',
+ 2,
+ 'Mama',
+ 1,
+ 1,
+ 1);
+
+INSERT INTO TANKEMARMURIEUTILISATEUR (ID_UTILISATEUR,ID_ARME,NB_STOCK) VALUES(3,1,0);
+INSERT INTO TANKEMARMURIEUTILISATEUR (ID_UTILISATEUR,ID_ARME,NB_STOCK) VALUES(3,2,0);
+INSERT INTO TANKEMARMURIEUTILISATEUR (ID_UTILISATEUR,ID_ARME,NB_STOCK) VALUES(3,3,0);
+INSERT INTO TANKEMARMURIEUTILISATEUR (ID_UTILISATEUR,ID_ARME,NB_STOCK) VALUES(3,4,0);
+INSERT INTO TANKEMARMURIEUTILISATEUR (ID_UTILISATEUR,ID_ARME,NB_STOCK) VALUES(3,5,0);
+INSERT INTO TANKEMARMURIEUTILISATEUR (ID_UTILISATEUR,ID_ARME,NB_STOCK) VALUES(3,6,0);
+INSERT INTO TANKEMARMURIEUTILISATEUR (ID_UTILISATEUR,ID_ARME,NB_STOCK) VALUES(3,7,1);
+COMMIT;
+
+
+
+ALTER TABLE tankemNiveau ADD proprietaire NUMBER;
+ALTER TABLE tankemNiveau ADD FOREIGN KEY (proprietaire) REFERENCES tankemUtilisateur(id);
+/*Changer le mode "equipe"*/
+UPDATE tankemNiveau SET status=3 WHERE status=2; 
+/*Ajouter un nom aux anciens niveaux*/
+UPDATE tankemNiveau SET proprietaire=1 WHERE proprietaire IS NULL;
+ALTER TABLE tankemNiveau MODIFY proprietaire  NUMBER NOT NULL;
+
+
+
+
+CREATE TABLE tankemNiveauFavori(
+	id_niveau NUMBER NOT NULL,
+	id_utilisateur NUMBER NOT NULL,
+	FOREIGN KEY (id_niveau) REFERENCES tankemNiveau(id),
+	FOREIGN KEY (id_utilisateur) REFERENCES tankemUtilisateur(id)
+);
+CREATE TABLE tankemNiveauNbFois(
+	id_niveau NUMBER NOT NULL,
+	id_utilisateur NUMBER NOT NULL,
+	nb_fois_joue NUMBER NOT NULL,
+	FOREIGN KEY (id_niveau) REFERENCES tankemNiveau(id),
+	FOREIGN KEY (id_utilisateur) REFERENCES tankemUtilisateur(id)
+);
+
+COMMIT;
+
+/*CREATION DES TABLES ET DES SEQUENCES NÉCÉSSAIRE POUR LES STATISTIQUE*/
+/*Username: 1232188 password:E*/
+
+
+CREATE SEQUENCE seq_partie
+START WITH 1
+INCREMENT BY 1;
+
+CREATE TABLE tankemPartie(
+	id NUMBER PRIMARY KEY,
+	id_niveau NUMBER NOT NULL,
+	debut_partie DATE NOT NULL,
+	id_gagnant NUMBER,
+	FOREIGN KEY (id_niveau) REFERENCES tankemNiveau(id),
+	FOREIGN KEY (id_gagnant) REFERENCES tankemUtilisateur(id)
+);
+
+CREATE TABLE tankemJoueurImplique(
+	id_partie NUMBER NOT NULL,
+	id_joueur NUMBER NOT NULL,
+	FOREIGN KEY (id_partie) REFERENCES tankemPartie(id),
+	FOREIGN KEY (id_joueur) REFERENCES tankemUtilisateur(id)
+);
+
+CREATE SEQUENCE seq_caseThermique
+START WITH 1
+INCREMENT BY 1;
+
+CREATE TABLE tankemCaseThermique(
+	id NUMBER PRIMARY KEY,
+	id_partie NUMBER NOT NULL,
+	valeurx NUMBER NOT NULL,
+	valeury NUMBER NOT NULL,
+	FOREIGN KEY (id_partie) REFERENCES tankemPartie(id)
+);
+
+CREATE TABLE tankemJoueurCase(
+	id_joueur NUMBER NOT NULL,
+	id_case NUMBER NOT NULL,
+	id_partie NUMBER NOT NULL,
+	QTE_DMG_DONNE NUMBER,
+	QTE_DMG_RECU NUMBER,
+	temps_passe NUMBER(4,2),
+	FOREIGN KEY (id_partie) REFERENCES tankemPartie(id),
+	FOREIGN KEY (id_joueur) REFERENCES tankemUtilisateur(id),
+	FOREIGN KEY (id_case) REFERENCES tankemCaseThermique(id)
+);
+
+
+/*MODIFICATION DES TABLES*/
+
+/*MODIFICATION DE LA TABLE tankemArmurieUtilisateur POUR AJOUTER LE CHAMP NBTIR (par weapon)*/
+ALTER TABLE tankemArmurieUtilisateur ADD nbtir NUMBER;
+UPDATE tankemArmurieUtilisateur SET nbtir=0 WHERE nbtir IS NULL;
+ALTER TABLE tankemArmurieUtilisateur MODIFY nbtir  NUMBER NOT NULL;
+
+/*MODIFICATION DE LA TABLE tankemArmurieUtilisateur POUR AJOUTER LE CHAMP qtedmg (par weapon)*/
+ALTER TABLE tankemArmurieUtilisateur ADD qtedmg NUMBER;
+UPDATE tankemArmurieUtilisateur SET qtedmg=0 WHERE qtedmg IS NULL;
+ALTER TABLE tankemArmurieUtilisateur MODIFY qtedmg  NUMBER NOT NULL;
+
+COMMIT;
